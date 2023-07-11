@@ -1,7 +1,7 @@
-import subprocess,sys
+import subprocess
 
 def gcc_compile(Cfile_PATH:str,executable_folder_name:str):
-    Outfile_PATH = Cfile_PATH[0:Cfile_PATH.rfind('/')+1] + executable_folder_name + '/' + Cfile_PATH[Cfile_PATH.rfind('/')+1:-2]
+    Outfile_PATH = './' + executable_folder_name + '/' + Cfile_PATH[Cfile_PATH.rfind('/')+1:-2]
     command = ['gcc','-Wall','-O2',Cfile_PATH,'-o',Outfile_PATH]
     try:
         result = subprocess.run(
@@ -18,7 +18,7 @@ def debug_gcc_compile(Cfile_PATH:str,executable_folder_name:str):
     print('debug_gcc_compile')
     print(Cfile_PATH)
     print(Cfile_PATH.rfind('/'))
-    Outfile_PATH = Cfile_PATH[0:Cfile_PATH.rfind('/')+1] + executable_folder_name + '/' + Cfile_PATH[Cfile_PATH.rfind('/')+1:-2]
+    Outfile_PATH = './' + executable_folder_name + '/' + Cfile_PATH[Cfile_PATH.rfind('/')+1:-2]
     print(Outfile_PATH)
     command = ['gcc','-Wall','-O2',Cfile_PATH,'-o',Outfile_PATH]
     try:
