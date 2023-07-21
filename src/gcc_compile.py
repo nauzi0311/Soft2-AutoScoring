@@ -1,7 +1,7 @@
 import subprocess
 
 def gcc_compile(Cfile_PATH:str,executable_folder_name:str):
-    Outfile_PATH = './' + executable_folder_name + '/' + Cfile_PATH[Cfile_PATH.rfind('/')+1:-2]
+    Outfile_PATH = executable_folder_name + '/' + Cfile_PATH[Cfile_PATH.rfind('/')+1:-2]
     command = ['gcc','-Wall','-O2',Cfile_PATH,'-o',Outfile_PATH]
     try:
         result = subprocess.run(
@@ -11,7 +11,6 @@ def gcc_compile(Cfile_PATH:str,executable_folder_name:str):
     except subprocess.CalledProcessError as e:
         print(e)
         return -1
-    print(result.stderr)
     return Outfile_PATH
         
 def debug_gcc_compile(Cfile_PATH:str,executable_folder_name:str):
@@ -31,5 +30,4 @@ def debug_gcc_compile(Cfile_PATH:str,executable_folder_name:str):
         return -1
     # result.stdout : 標準出力
     # result.stderr : エラー出力
-    print(result.stderr)
     return 0

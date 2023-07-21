@@ -1,0 +1,24 @@
+# This file is written about config.
+# This is example below.
+#
+# [[configs]]
+# source = "../source_folder"
+# test_case = "../test_case_folder"
+# input_type = "args" or "stdin"
+# output = "../out"
+# exe = "../exe"
+
+
+[[configs]]
+source = "../target/test"
+test_case = "../in/test_arg"
+input_type = "args"
+output = "../out/test_arg"
+exe = "../exe/test_arg"
+
+[[configs]]
+source = "../target/test2"
+test_case = "../in/test_input_text"
+input_type = "stdin"
+output = "../out/test_input_text"
+exe = "../exe/test_input_text"
